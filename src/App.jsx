@@ -21,14 +21,16 @@ function App() {
         })
     }
 
-    userData.duration < 1
+    userData.duration < 1 && userData.duration < 50
         ? window.alert('Please enter a proper duration')
         : null
     return (
         <>
             <Header />
             <UserPanel handleInput={handleUserInput} data={userData} />
-            {userData.duration > 0 && <Result dataObject={userData} />}
+            {userData.duration > 0 && userData.duration < 50 && (
+                <Result dataObject={userData} />
+            )}
         </>
     )
 }
